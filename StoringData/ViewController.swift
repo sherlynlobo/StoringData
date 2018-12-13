@@ -17,7 +17,10 @@ class ViewController: UIViewController {
     
     @IBAction func submit(_ sender: UIButton) {
         let greeting = "Welcome "
-        output.text = greeting + input.text!
+        let combo = greeting + input.text!
+        output.text = combo
+        UserDefaults.standard.set(combo, forKey: "myName")
+        input.text = ""
     }
     
     
@@ -29,6 +32,16 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    
+    {
+        if let x = UserDefaults.standard.object(forKey: "myName") as? String
+        {
+            output.text = x
+            
+        }
     }
 
 
