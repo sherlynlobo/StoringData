@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func submit(_ sender: UIButton) {
+        let greeting = "Welcome "
+        output.text = greeting + input.text!
     }
     
     
